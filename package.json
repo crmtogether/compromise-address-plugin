@@ -1,0 +1,50 @@
+{
+  "name": "compromise-address-plugin",
+  "description": "plugin for nlp-compromise - parse addresses and postcodes",
+  "version": "1.0.0",
+  "author": "",
+  "main": "./src/plugin.js",
+  "unpkg": "./builds/compromise-address-plugin.min.js",
+  "module": "./builds/compromise-address-plugin.mjs",
+  "type": "module",
+  "sideEffects": false,
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./index.d.ts",
+        "default": "./src/plugin.js"
+      },
+      "require": {
+        "types": "./index.d.cts",
+        "default": "./builds/compromise-address-plugin.cjs"
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/spencermountain/compromise-address-plugin.git"
+  },
+  "homepage": "https://github.com/spencermountain/compromise-address-plugin",
+  "scripts": {
+    "test": "tape \"./tests/**/*.test.js\" | tap-dancer --color always",
+    "testb": "TESTENV=prod tape \"./tests/**/*.test.js\" | tap-dancer --color always",
+    "watch": "node --watch ./scratch.js",
+    "version": "node ./scripts/version.js",
+    "build": "npm run version && rollup -c --silent"
+  },
+  "files": [
+    "builds/",
+    "src/",
+    "index.d.ts"
+  ],
+  "peerDependencies": {
+    "compromise": "^14.14.5"
+  },
+  "devDependencies": {
+    "rollup": "^4.0.0",
+    "tap-dancer": "^0.3.0",
+    "tape": "^5.6.0"
+  },
+  "license": "Apache-2.0"
+}
